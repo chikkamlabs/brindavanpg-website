@@ -1,7 +1,30 @@
-import type { NextConfig } from "next";
+
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  reactStrictMode: true,
+
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
+
+  output: 'standalone',
+
+  transpilePackages: ['motion'],
+
+  // Keep Turbopack compatible with Next.js 16.
+  turbopack: {},
 };
 
 export default nextConfig;
